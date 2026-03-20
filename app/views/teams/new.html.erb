@@ -1,0 +1,23 @@
+<h1>New Team</h1>
+
+<%= form_with model: @team do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.select :role, [["Admin", "admin"], ["Manager", "manager"], ["Member", "member"]] %>
+  <div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to "Cancel", teams_path %>

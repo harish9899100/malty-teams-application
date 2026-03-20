@@ -1,0 +1,33 @@
+<h1>Invite User</h1>
+
+<%= form_with url: invite_user_path, method: :post, local: true do %>
+  
+  <%= hidden_field_tag :team_id, @team_id %>
+
+  <div>
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name, nil, class: "border px-2 py-1 rounded" %>
+  </div>
+
+  <div>
+    <%= label_tag :email %><br>
+    <%= email_field_tag :email, nil, class: "border px-2 py-1 rounded" %>
+  </div>
+   
+  
+  <div>
+    <%= label_tag :role %><br>
+    <%= select_tag :role,
+        options_for_select([
+          ["Select Role", ""],
+          ["Member", "member"]
+        ]),
+        class: "border px-2 py-1 rounded" %>
+  </div>
+
+  <br>
+
+  <%= submit_tag "Send Invitation",
+      class: "bg-green-500 text-white px-4 py-2 rounded" %>
+
+<% end %>
