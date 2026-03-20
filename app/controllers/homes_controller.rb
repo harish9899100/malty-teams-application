@@ -2,11 +2,18 @@ class HomesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @teams = Team.includes(:users)
+    if current_user.admin?
+     @teams = current_user.organization.teams.includes(:users)
+    else
+      
+    end
   end
 
   def new_invite
     @team_id = params[:team_id]
+    @user = User.new
+    authorize @user
+
   end
 
   def create_invite

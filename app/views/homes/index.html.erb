@@ -1,3 +1,5 @@
+
+<% if current_user.admin? %>
 <h1>All Teams</h1>
 
 <% @teams.each do |team| %>    
@@ -38,6 +40,12 @@
     </table>
 
   </div>
+<% end %>
+<% else %>
+ 
+   <h2> User Name: <%= current_user.name %> </h2>
+   <h3> Team Name: <%= current_user.team.name %> </h3>
+
 <% end %>
 
 

@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <p>
+      Welcome, <%= current_user.email %>
+    </p>
+
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path %> 
+  <% end %>
+    <% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
     <%= yield %>
   </body>
 </html>
