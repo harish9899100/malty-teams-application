@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  belongs_to :organization
-  belongs_to :team, optional: true
+  belongs_to :organization, optional: true
+  belongs_to :team, optional: true, optional: true
+  #enum role: { member: 0, manager: 1 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,

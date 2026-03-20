@@ -1,2 +1,43 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<h1>All Teams</h1>
+
+<% @teams.each do |team| %>    
+  <div class="mt-6">
+
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-bold"><%= team.name %></h2>
+
+      <%= link_to "Invite User",
+          invite_user_path(team_id: team.id),
+          class: "bg-blue-500 text-white px-3 py-1 rounded" %>
+    </div>
+
+    <table class="table-auto border-collapse border border-gray-400 w-full mt-2">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border px-4 py-2">Name</th>
+          <th class="border px-4 py-2">Email</th>
+          <th class="border px-4 py-2">Role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if team.users.any? %>
+          <% team.users.each do |user| %>
+            <tr>
+              <td class="border px-4 py-2"><%= user.name %></td>
+              <td class="border px-4 py-2"><%= user.email %></td>
+              <td class="border px-4 py-2"><%= user.role %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="3" class="text-center py-2">No users in this team</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+<% end %>
+
+
