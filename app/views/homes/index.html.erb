@@ -42,9 +42,9 @@
   </div>
 <% end %>
 <% else %>
- 
+   <h1> Team Name: <%= current_user.team.name %> </h1>
    <h2> User Name: <%= current_user.name %> </h2>
-   <h3> Team Name: <%= current_user.team.name %> </h3>
+   <h2> User Role: <%= current_user.role %> </h2>
 
 <% end %>
 
