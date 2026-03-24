@@ -16,9 +16,7 @@ ActiveAdmin.register User do
   end
   filter :name
   filter :email
-  #filter :role, as: :select, collection: User.roles.keys
   filter :organization
- # filter :team
   filter :created_at
   form do |f|
     f.inputs do
@@ -28,6 +26,8 @@ ActiveAdmin.register User do
       f.input :password, required: false
       f.input :password_confirmation, required: false
 
+      f.input :role, as: :select, collection: ["admin", "manager"]
+
       #f.input :role, as: :select, collection: User.roles.keys
 
       f.input :organization,
@@ -36,7 +36,7 @@ ActiveAdmin.register User do
 
       f.input :team,
               as: :select,
-              collection: Team.where(organization_id: f.object.organization_id)
+              collection: Team.all #where(organization_id: f.object.organization_id)
 
       f.input :invited_by,
               as: :select,
