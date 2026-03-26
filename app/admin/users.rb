@@ -26,7 +26,7 @@ ActiveAdmin.register User do
       f.input :password, required: false
       f.input :password_confirmation, required: false
 
-      f.input :role, as: :select, collection: ["admin", "manager"]
+      f.input :role, as: :select, collection: ["admin", "member"]
 
       #f.input :role, as: :select, collection: User.roles.keys
 
