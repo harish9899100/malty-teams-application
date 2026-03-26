@@ -21,8 +21,8 @@
 
           <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
             <div>
-              <h2 class="text-base font-semibold text-gray-900"><%= team.name %></h2>
-              <p class="text-xs text-gray-400 mt-0.5">
+              <h2 class="text-base font-semibold text-gray-900 px-4"><%= team.name %></h2>
+              <p class="text-xs text-gray-400 mt-0.5 px-4">
                 <%= team.users.count %> <%= team.users.count == 1 ? "member" : "members" %>
               </p>
             </div>
@@ -42,7 +42,7 @@
             <% end %>
           </div>
 
-          <div class="overflow-x-auto pt-4">
+          <div class="overflow-x-auto pt-4 px-4">
             <table class="w-full text-sm">
               <thead>
                 <tr class="bg-gray-50 border-b border-gray-100">
