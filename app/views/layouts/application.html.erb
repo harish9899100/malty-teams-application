@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+<% if current_user %>
+  <div class="p-4 text-right">
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "bg-red-500 text-white px-4 py-2 rounded" %>
+  </div>
+<% end %>
+
     <%= yield %>
   </body>
 </html>

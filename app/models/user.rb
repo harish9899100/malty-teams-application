@@ -25,5 +25,13 @@ end
       "invitation_accepted_at"
     ]
   end
+
+  def admin?
+    role == "admin"
+  end
+
+  def member?
+    role == "member"
+  end
   
 end

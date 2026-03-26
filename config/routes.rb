@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get 'teams/new'
   # get 'teams/edit'
   #get 'homes/index'
-  devise_for :users
+  devise_for :users, skip: [:registrations]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
