@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # get 'teams/new'
   # get 'teams/edit'
   #get 'homes/index'
-  devise_for :users, skip: [:registrations]
+
+  devise_for :users, 
+    controllers: {
+      omniauth_callbacks: 'users/omniauth_callbacks'
+    }#,
+    # skip: [:registrations]  # Keep this if you don't want user registration via email/password
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

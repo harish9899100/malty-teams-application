@@ -81,3 +81,6 @@ gem 'devise_invitable'
 gem "letter_opener", group: :development
 
 gem "tailwindcss-rails", "~> 4.4"
+
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'  # Important for security
