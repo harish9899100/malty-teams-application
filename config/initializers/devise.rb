@@ -284,6 +284,13 @@ Devise.setup do |config|
   #   warden_config.intercept_401 = false
   #   warden_config.default_strategies(scope: :user).unshift :some_external_strategy
   # end
+    config.omniauth :google_oauth2, 
+    ENV['GOOGLE_CLIENT_ID'], 
+    ENV['GOOGLE_CLIENT_SECRET'], 
+    {
+      scope: 'email,profile',
+      prompt: 'select_account'
+    }
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
